@@ -1,0 +1,104 @@
+
+<h1 align="center"><b>Farmer Survey List</b></h1>
+
+<table border="2" class=" table table-info"align="center">
+    <thead>
+        <tr class="table-success">
+            <th scope="col">FarmerId</th>
+            <th scope="col">Farmername</th>
+            <th scope="col">AddharNumber</th>
+            <th scope="col">MobileNumber</th>
+            <th scope="col">GatNumber</th>
+            <th scope="col">GatNakshaNumber</th>
+            <th scope="col" colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let datavar of surveylist"> 
+            
+             <td class="table-warning">{{datavar.id}}</td>
+            <td class="table-warning">{{datavar.farmername}}</td>
+            <td class="table-warning">{{datavar.addharno}}</td>
+            <td class="table-warning">{{datavar.mobileno}}</td>
+            <td class="table-warning">{{datavar.gatno}}</td>
+            <td class="table-warning">{{datavar.gatnakshano}}</td>
+            
+             <td class="table-warning"> <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="edit(datavar)">Update</button></td>
+             <td class="table-warning"><button type="button" class="btn btn-warning"(click)="deleteSurvey(datavar.id)">Delete</button></td>
+            </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<!-- //Footer code -->
+<br><br>
+<article class="bg-secondary mb-3">  
+<div class="card-body text-center">
+    <h3 class="text-white mt-3"></h3>
+<p class="h5 text-white">Land Survey</p>   <br>
+<p><a class="btn btn-warning" target="_blank" href="https://surveyofindia.gov.in/"> landsurvey.com  
+ <i class="fa fa-window-restore "></i></a></p>
+</div>
+<br><br>
+</article>
+
+
+
+<!-- //update form html file -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Farmer</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #updateForm="ngForm" (ngSubmit)="updateSurvey()" >
+                <div class="form-group">
+                    <label for="id">Farmer Id:</label>
+                       <input disabled #id [(ngModel)]="surveyToUpdate.id" class="form-control" type="text" id="id" name="farmerid" >
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <label for="farmername">Farmer Name:</label>
+                       <input #farmername [(ngModel)]="surveyToUpdate.farmername" class="form-control" type="text" id="farmername" name="farmername" >
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <label for="farmername">Addhar Number:</label>
+                     <input #addharno [(ngModel)]="surveyToUpdate.addharno" class="form-control" type="text" id="addharno" name="addharno" >
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <label for="addharno">Mobile Number:</label>
+                    <input #mobileno [(ngModel)]="surveyToUpdate.mobileno" class="form-control" type="text" id="mobileno" name="mobileno" >
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <label for="gatno">Gat Number:</label>
+                     <input #gatno [(ngModel)]="surveyToUpdate.gatno" class="form-control" type="text" id="gatno" name="gatno" >
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <label for="gatnakshano">Gat Naksha Number:</label>
+                    <input #gatnakshano [(ngModel)]="surveyToUpdate.gatnakshano" class="form-control"type="text" id="gatnakshano" name="gatnakshano" >
+                </div> <!-- form-group// -->
+                 <br>
+                 <br>                                   
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary w-100">
+                 
+                </div> <!-- form-group// -->      
+                                                                               
+            </form>  
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+
+<router-outlet></router-outlet>

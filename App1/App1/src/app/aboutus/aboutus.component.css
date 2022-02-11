@@ -1,0 +1,12 @@
+.block{
+    background-color: rgba(223, 188, 188, 0.37);
+    }
+    
+    .block::before{
+      background-color: rgba(0, 0, 0, 0.37);
+      content: '';
+      display: block;
+      height:500%;
+      position: absolute;
+      width: 100%;
+    }
